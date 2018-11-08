@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   getAuthUserId(): number {
-    return JSON.parse(localStorage.getItem("user")).id;
+    return JSON.parse(localStorage.getItem("user")).data.id;
   }
 
   getToken(): string {
