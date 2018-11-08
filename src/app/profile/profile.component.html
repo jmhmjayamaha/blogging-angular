@@ -1,0 +1,27 @@
+<div class="col-lg-4">
+  <div class="panel panel-default" *ngIf="user">
+    <div class="panel-heading">
+      <p class="text-center">{{user.name}}'s profile</p>
+    </div>
+    <div class="panel-body">
+      <div class="text-center">
+        <img src="http://placehold.it/150x150" style="border-radius: 50%" width="140px" height="140px" alt="">
+      </div>
+      <br>
+      <p class="text-center">
+        Joined Date: {{ user.joined | prettyDate}}
+      </p>
+      <br>
+      <p class="text-center">
+        <a class="btn btn-info">Edit your profile</a>
+      </p>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="text-center">
+        <a class="btn btn-default">Follow</a>
+      </div>
+    </div>
+  </div>
+</div>

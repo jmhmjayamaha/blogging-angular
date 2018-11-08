@@ -14,6 +14,9 @@ import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./guards/auth.guard";
 import { NotifyComponent } from "./notify/notify.component";
 import { NotifyService } from "./services/notify.service";
+import { ProfileComponent } from "./profile/profile.component";
+import { UserService } from "./services/user.service";
+import { PrettyDatePipe } from "./pipes/pretty-date.pipe";
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { NotifyService } from "./services/notify.service";
     RegisterComponent,
     DashboardComponent,
     LoginComponent,
-    NotifyComponent
+    NotifyComponent,
+    ProfileComponent,
+    PrettyDatePipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,7 @@ import { NotifyService } from "./services/notify.service";
     RouterModule.forRoot(ROUTES),
     FormsModule
   ],
-  providers: [AuthService, AuthGuard, NotifyService],
+  providers: [AuthService, AuthGuard, NotifyService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -17,6 +17,18 @@ export class AuthService {
     private _notifyService: NotifyService
   ) {}
 
+  getAuthUser(): User {
+    return JSON.parse(localStorage.getItem("user"));
+  }
+
+  getAuthUserId(): number {
+    return JSON.parse(localStorage.getItem("user")).id;
+  }
+
+  getToken(): string {
+    return localStorage.getItem("token");
+  }
+
   register(name: string, email: string, password: string): Promise<UserData> {
     return this._http
       .post(`${CONFIG.API_URL}/register`, {
