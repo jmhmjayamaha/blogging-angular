@@ -21,11 +21,6 @@ export class ProfileComponent implements OnInit {
 
   isAtuthUserProfile(): boolean {
     return +this.id == +this._authService.getAuthUserId();
-    // if (+this.id == +this._authService.getAuthUserId()) {
-    //   this._userService.getUseById(this.id).then(user => (this.user = user));
-    //   return true;
-    // }
-    // return false;
   }
 
   ngOnInit() {
