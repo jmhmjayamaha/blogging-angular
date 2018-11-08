@@ -29,4 +29,20 @@ export class UserService {
       .toPromise()
       .then(response => response.json());
   }
+
+  updateProfile(name: string, email: string): Promise<User> {
+    let url = `${CONFIG.API_URL}/user/update`;
+    let body = { name: name, email: email };
+    let options = new RequestOptions({ headers: this.headers });
+
+    return this._http
+      .put(url, body, options)
+      .toPromise()
+      .then(response => {
+        let user = response.json().data;
+
+        localStorage.setItem("user", JSON.stringify(user));
+        return user;
+      });
+  }
 }

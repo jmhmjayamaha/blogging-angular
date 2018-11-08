@@ -17,6 +17,8 @@ import { NotifyService } from "./services/notify.service";
 import { ProfileComponent } from "./profile/profile.component";
 import { UserService } from "./services/user.service";
 import { PrettyDatePipe } from "./pipes/pretty-date.pipe";
+import { WallComponent } from './profile/wall/wall.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PrettyDatePipe } from "./pipes/pretty-date.pipe";
     LoginComponent,
     NotifyComponent,
     ProfileComponent,
-    PrettyDatePipe
+    PrettyDatePipe,
+    WallComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
