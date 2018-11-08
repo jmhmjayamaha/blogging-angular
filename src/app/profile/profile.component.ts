@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { UserService } from "../services/user.service";
+import { User } from "../classes/User";
 
 @Component({
   selector: "app-profile",
@@ -9,6 +10,7 @@ import { UserService } from "../services/user.service";
 })
 export class ProfileComponent implements OnInit {
   id: number;
+  user: User;
 
   constructor(
     private _router: ActivatedRoute,
@@ -20,6 +22,6 @@ export class ProfileComponent implements OnInit {
       this.id = +params["id"];
     });
 
-    this._userService.getUseById(this.id);
+    this._userService.getUseById(this.id).then(user => (this.user = user));
   }
 }

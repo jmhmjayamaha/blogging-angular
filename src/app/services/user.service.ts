@@ -3,6 +3,7 @@ import { AuthService } from "./auth.service";
 import { Http, RequestOptions, Headers } from "@angular/http";
 import { CONFIG } from "src/config/config";
 import { User } from "../classes/User";
+import { promise } from "protractor";
 
 @Injectable({
   providedIn: "root"
@@ -16,9 +17,9 @@ export class UserService {
     });
   }
 
-  getUseById(id: number) {
+  getUseById(id: number): Promise<User> {
     if (id == this._authService.getAuthUserId()) {
-      return this._authService.getAuthUser();
+      return Promise.resolve(this._authService.getAuthUser());
     }
 
     let options = new RequestOptions({ headers: this.headers });
@@ -26,8 +27,6 @@ export class UserService {
     return this._http
       .get(`${CONFIG.API_URL}/user/${id}`, options)
       .toPromise()
-      .then(response => {
-        console.log(response.json());
-      });
+      .then(response => response.json());
   }
 }
