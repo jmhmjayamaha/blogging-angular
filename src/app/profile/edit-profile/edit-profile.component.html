@@ -5,7 +5,6 @@
     </div>
     <div class="panel-body">
       <form (ngSubmit)="editProfile()">
-        {{ user | json}}
         <div class="form-group">
           <label>Your name</label>
           <input type="text" class="form-control" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
