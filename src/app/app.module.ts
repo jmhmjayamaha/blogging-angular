@@ -19,6 +19,7 @@ import { UserService } from "./services/user.service";
 import { PrettyDatePipe } from "./pipes/pretty-date.pipe";
 import { WallComponent } from './profile/wall/wall.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { FollowComponent } from './profile/follow/follow.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     ProfileComponent,
     PrettyDatePipe,
     WallComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FollowComponent
   ],
   imports: [
     BrowserModule,
