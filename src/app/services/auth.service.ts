@@ -39,7 +39,7 @@ export class AuthService {
       .toPromise()
       .then(response => {
         let token = response.json().token;
-        let user = response.json().user;
+        let user = response.json().user.data;
 
         let userdata = new UserData(token, user);
         return userdata;
@@ -59,7 +59,7 @@ export class AuthService {
       .toPromise()
       .then(response => {
         let token = response.json().token;
-        let user = response.json().user;
+        let user = response.json().user.data;
 
         let userdata = new UserData(token, user);
         return userdata;
