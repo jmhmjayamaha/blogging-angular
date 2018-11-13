@@ -6,6 +6,7 @@ import { AuthedGuard } from "../guards/authed.guard";
 import { ProfileComponent } from "../profile/profile.component";
 import { WallComponent } from "../profile/wall/wall.component";
 import { EditProfileComponent } from "../profile/edit-profile/edit-profile.component";
+import { CreateJokesComponent } from "../create-jokes/create-jokes.component";
 
 export const ROUTES = [
   {
@@ -36,5 +37,9 @@ export const ROUTES = [
         component: EditProfileComponent
       }
     ]
+  },
+  {
+    path: "create/joke",
+    component: CreateJokesComponent
   }
 ];

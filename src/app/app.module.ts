@@ -21,6 +21,7 @@ import { WallComponent } from './profile/wall/wall.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { FollowComponent } from './profile/follow/follow.component';
 import { FollowService } from "./services/follow.service";
+import { CreateJokesComponent } from './create-jokes/create-jokes.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FollowService } from "./services/follow.service";
     PrettyDatePipe,
     WallComponent,
     EditProfileComponent,
-    FollowComponent
+    FollowComponent,
+    CreateJokesComponent
   ],
   imports: [
     BrowserModule,
