@@ -19,6 +19,8 @@ import { UserService } from "./services/user.service";
 import { PrettyDatePipe } from "./pipes/pretty-date.pipe";
 import { WallComponent } from './profile/wall/wall.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { FollowComponent } from './profile/follow/follow.component';
+import { FollowService } from "./services/follow.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     ProfileComponent,
     PrettyDatePipe,
     WallComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FollowComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     RouterModule.forRoot(ROUTES),
     FormsModule
   ],
-  providers: [AuthService, AuthGuard, NotifyService, UserService],
+  providers: [AuthService, AuthGuard, NotifyService, UserService, FollowService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
