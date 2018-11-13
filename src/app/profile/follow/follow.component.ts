@@ -10,6 +10,7 @@ export class FollowComponent implements OnInit {
 
   @Input() currentProfile;
   public isFollowingUser:boolean;
+  private isLoading: boolean = true;
 
   constructor(
     private _followingService : FollowService
@@ -17,9 +18,28 @@ export class FollowComponent implements OnInit {
 
   ngOnInit() {
     this._followingService.isFollowing(this.currentProfile)
-        .then(res => {
+        .then(res => {        
+          this.isLoading = false;
           this.isFollowingUser = res;
         })
+  }
+
+  follow() {
+    this.isLoading = true
+    this._followingService.follow(this.currentProfile)
+        .then(res => {
+          this.isFollowingUser = true;
+          this.isLoading = false;
+        })
+  }
+
+  unFollow() {
+    this.isLoading = true;
+    this._followingService.unFollow(this.currentProfile)
+    .then(res => {
+      this.isFollowingUser = false;
+      this.isLoading = false;
+    })
   }
 
 }
