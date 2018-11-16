@@ -5,8 +5,18 @@
         Create joke
       </div>
       <div class="panel-body">
-        <form [formGroup] = "jokeForm">
-
+        <form [formGroup] = "jokeForm" (ngSubmit)="onSubmit()">
+          <ul class="list-group">
+            <li class="list-group-item text-danger" *ngIf="jokeForm.get('title').hasError('required') && jokeForm.get('title').touched">
+              Title is requird
+            </li>
+            <li class="list-group-item text-danger" *ngIf="jokeForm.get('content').hasError('required') && jokeForm.get('title').touched">
+              content is requird
+            </li>
+            <li class="list-group-item text-danger" *ngIf="jokeForm.get('content').hasError('minlength') && jokeForm.get('title').touched">
+              Content should have more than 5 characters
+            </li>
+          </ul>
           <div class="form-group">
             <label>Joke title</label>
             <input type="text" class="form-control" formControlName="title">
@@ -16,7 +26,7 @@
             <textarea cols="5" rows="5" class="form-control" formControlName="content"></textarea>
           </div>
           <div class="form-group text-center">
-            <button class="btn btn-info">
+            <button class="btn btn-info" [disabled]="jokeForm.invalid">
               Create Joke
             </button>
           </div>
