@@ -5,14 +5,15 @@
         Create joke
       </div>
       <div class="panel-body">
-        <form>
+        <form [formGroup] = "jokeForm">
+
           <div class="form-group">
             <label>Joke title</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" formControlName="title">
           </div>
           <div class="form-group">
             <label>Joke content</label>
-            <textarea cols="5" rows="5" class="form-control"></textarea>
+            <textarea cols="5" rows="5" class="form-control" formControlName="content"></textarea>
           </div>
           <div class="form-group text-center">
             <button class="btn btn-info">

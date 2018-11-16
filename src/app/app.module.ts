@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -42,7 +42,8 @@ import { CreateJokesComponent } from './create-jokes/create-jokes.component';
     AppRoutingModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard, NotifyService, UserService, FollowService],
   bootstrap: [AppComponent]
