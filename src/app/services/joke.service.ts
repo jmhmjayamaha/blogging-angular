@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { AuthService } from './auth.service';
 import { CONFIG } from 'src/config/config';
+import { config } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +46,17 @@ export class JokeService {
               })
 
   }
+
+  updateJoke(id:number , joke) {
+    let url = `${CONFIG.API_URL}/jokes/${id}`;
+    let options = new RequestOptions({headers : this.headers});
+    let body = { title: joke.title, joke: joke.content};
+
+    return this._http.put(url, body, options)
+                .toPromise()
+                .then(res => {
+                  return res.json();
+                })
+  }
+
 }
