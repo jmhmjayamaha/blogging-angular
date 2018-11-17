@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { JokeService } from '../services/joke.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-create-jokes',
@@ -12,7 +14,12 @@ export class CreateJokesComponent implements OnInit {
   jokeForm: FormGroup
 
 
-  constructor(private _fb: FormBuilder, private _jokes: JokeService) {
+  constructor(
+    private _fb: FormBuilder, 
+    private _router : Router,
+    private _authServie : AuthService,
+    private _jokes: JokeService
+  ) {
     this.createJokes();
   }
 
@@ -31,7 +38,7 @@ export class CreateJokesComponent implements OnInit {
   onSubmit() {
     this._jokes.createJoke(this.jokeForm.value)
         .then(res => {
-          console.log(res);
+          this._router.navigate(['user/profile/', this._authServie.getAuthUserId()]);
         })
   }
 
