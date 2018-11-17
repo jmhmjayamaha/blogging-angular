@@ -49,4 +49,15 @@ export class UserService {
         return user;
       });
   }
+
+  getUserWall(id:number) {
+    let url = `${CONFIG.API_URL}/user/profile/${id}/wall`
+    let options = new RequestOptions({ headers : this.headers});
+
+    return this._http.get(url, options)
+        .toPromise()
+        .then(res => {
+          return res.json();
+        })
+  }
 }

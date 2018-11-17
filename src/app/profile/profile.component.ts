@@ -28,10 +28,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._router.params.subscribe(params => {
-      this.id = +params["id"];
-    });
-
-    this._userService.getUseById(this.id).then(user => (this.user = user));
+      this._router.params.subscribe(params => {
+        this.id = +params['id'] 
+        this._userService.getUseById(this.id)
+                      .then(user => { this.user = user })
+      })
   }
 }
