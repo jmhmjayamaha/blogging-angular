@@ -50,7 +50,7 @@ export class AuthService {
       });
   }
 
-  logIn(email: string, password: string): Promise<UserData> {
+  logIn(email: string, password: string): Promise<any> {
     return this._http
       .post(`${CONFIG.API_URL}/authenticate`, {
         email: email,
@@ -63,6 +63,8 @@ export class AuthService {
 
         let userdata = new UserData(token, user);
         return userdata;
+      }).catch(e => {
+        return Promise.reject(e.json())
       });
   }
 

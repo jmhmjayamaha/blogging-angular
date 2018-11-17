@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -21,6 +21,8 @@ import { WallComponent } from './profile/wall/wall.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { FollowComponent } from './profile/follow/follow.component';
 import { FollowService } from "./services/follow.service";
+import { CreateJokesComponent } from './create-jokes/create-jokes.component';
+import { JokeComponent } from './joke/joke.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,17 @@ import { FollowService } from "./services/follow.service";
     PrettyDatePipe,
     WallComponent,
     EditProfileComponent,
-    FollowComponent
+    FollowComponent,
+    CreateJokesComponent,
+    JokeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard, NotifyService, UserService, FollowService],
   bootstrap: [AppComponent]

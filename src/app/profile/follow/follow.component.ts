@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input , OnChanges} from '@angular/core';
 import { FollowService } from 'src/app/services/follow.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { FollowService } from 'src/app/services/follow.service';
   templateUrl: './follow.component.html',
   styleUrls: ['./follow.component.css']
 })
-export class FollowComponent implements OnInit {
+export class FollowComponent implements OnInit , OnChanges{
 
   @Input() currentProfile;
   public isFollowingUser:boolean;
@@ -16,7 +16,15 @@ export class FollowComponent implements OnInit {
     private _followingService : FollowService
   ) { }
 
+  ngOnChanges() {
+    this.checkIfFollowing();
+  }
+
   ngOnInit() {
+    this.checkIfFollowing();
+  }
+
+  checkIfFollowing() {
     this._followingService.isFollowing(this.currentProfile)
         .then(res => {        
           this.isLoading = false;
