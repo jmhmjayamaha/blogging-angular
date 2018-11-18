@@ -10,7 +10,7 @@
       <ul class="nav navbar-nav">
         <li *ngIf="isloggedIn()"><a routerLink="/dashboard">Dashboard</a></li>
         <li *ngIf="isloggedIn()"><a routerLink="/create/joke">New Joke</a></li>
-        <li *ngIf="isloggedIn()"><a (click)="myProfile()">My Profile</a></li>
+        <li *ngIf="user"><a *ngIf="isloggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
